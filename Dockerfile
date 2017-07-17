@@ -34,6 +34,9 @@ RUN apt-get install -yqq \
 RUN curl --output wkhtmltox-0.12.1_linux-precise-amd64.deb --location http://download.gna.org/wkhtmltopdf/0.12/0.12.1/wkhtmltox-0.12.1_linux-precise-amd64.deb
 RUN dpkg -i wkhtmltox-0.12.1_linux-precise-amd64.deb
 
+# Install pdftk
+RUN apt-get install -yqq pdftk 
+
 
 # Setup apache server config
 COPY default /etc/apache2/sites-available/default
