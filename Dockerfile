@@ -31,7 +31,7 @@ RUN apt-get install -yqq \
 	fontconfig \
 	libxext6 \
 	libxrender1
-RUN curl --output wkhtmltox-0.12.1_linux-precise-amd64.deb --location http://download.gna.org/wkhtmltopdf/0.12/0.12.1/wkhtmltox-0.12.1_linux-precise-amd64.deb
+RUN curl --output wkhtmltox-0.12.1_linux-precise-amd64.deb --location https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.1/wkhtmltox-0.12.1_linux-precise-amd64.deb
 RUN dpkg -i wkhtmltox-0.12.1_linux-precise-amd64.deb
 
 # Install pdftk
