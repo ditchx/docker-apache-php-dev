@@ -34,8 +34,20 @@ RUN apt-get install -yqq \
 RUN curl --output wkhtmltox-0.12.1_linux-precise-amd64.deb --location https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.1/wkhtmltox-0.12.1_linux-precise-amd64.deb
 RUN dpkg -i wkhtmltox-0.12.1_linux-precise-amd64.deb
 
-# Install pdftk
-RUN apt-get install -yqq pdftk 
+# Install pdftk and its dependencies 
+RUN curl --output gcc-4.9-base_4.9.2-10ubuntu13_amd64.deb --location http://launchpadlibrarian.net/203276913/gcc-4.9-base_4.9.2-10ubuntu13_amd64.deb
+RUN dpkg -i gcc-4.9-base_4.9.2-10ubuntu13_amd64.deb
+
+RUN apt-get install -yqq \ 
+	libgcj-common \
+	libasound2
+
+RUN curl --output libgcj15_4.9.2-10ubuntu13_amd64.deb --location http://launchpadlibrarian.net/203276965/libgcj15_4.9.2-10ubuntu13_amd64.deb
+RUN dpkg -i libgcj15_4.9.2-10ubuntu13_amd64.deb
+
+RUN curl --output pdftk_2.02-2_amd64.deb --location https://launchpad.net/ubuntu/+archive/primary/+files/pdftk_2.02-2_amd64.deb
+RUN dpkg -i pdftk_2.02-2_amd64.deb
+
 
 
 # Setup apache server config
