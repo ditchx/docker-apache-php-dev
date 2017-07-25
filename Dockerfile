@@ -48,7 +48,8 @@ RUN dpkg -i libgcj15_4.9.2-10ubuntu13_amd64.deb
 RUN curl --output pdftk_2.02-2_amd64.deb --location https://launchpad.net/ubuntu/+archive/primary/+files/pdftk_2.02-2_amd64.deb
 RUN dpkg -i pdftk_2.02-2_amd64.deb
 
-
+# Install imagemagick
+RUN apt-get install -yqq imagemagick
 
 # Setup apache server config
 COPY default /etc/apache2/sites-available/default
